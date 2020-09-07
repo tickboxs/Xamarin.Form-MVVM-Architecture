@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Assets" xml:space="preserve">
+        <value>资产</value>
+    </data>
+    <data name="SearchAssets" xml:space="preserve">
+        <value>搜索资产</value>
+    </data>
+    <data name="SearchTransaction" xml:space="preserve">
+        <value>搜索交易</value>
+    </data>
+    <data name="Note" xml:space="preserve">
+        <value>备注</value>
+    </data>
+    <data name="Save" xml:space="preserve">
+        <value>保存</value>
+    </data>
+    <data name="Item" xml:space="preserve">
+        <value>项目</value>
+    </data>
+    <data name="Done" xml:space="preserve">
+        <value>完成</value>
+    </data>
+    <data name="TypeSomething" xml:space="preserve">
+        <value>输入点什么</value>
+    </data>
+    <data name="AssetName" xml:space="preserve">
+        <value>资产名称</value>
+    </data>
+    <data name="Transaction" xml:space="preserve">
+        <value>交易</value>
+    </data>
+    <data name="TransactionName" xml:space="preserve">
+        <value>交易名称</value>
+    </data>
+    <data name="DarkMode" xml:space="preserve">
+        <value>夜间模式</value>
+    </data>
+    <data name="Notification" xml:space="preserve">
+        <value>通知</value>
+    </data>
+    <data name="Currency" xml:space="preserve">
+        <value>货币</value>
+    </data>
+    <data name="Chart" xml:space="preserve">
+        <value>图表</value>
+    </data>
+    <data name="Income" xml:space="preserve">
+        <value>收入</value>
+    </data>
+    <data name="Expense" xml:space="preserve">
+        <value>支出</value>
+    </data>
+    <data name="ChartIncome" xml:space="preserve">
+        <value>收入图表</value>
+    </data>
+    <data name="ChartExpense" xml:space="preserve">
+        <value>支出图表</value>
+    </data>
+    <data name="Home" xml:space="preserve">
+        <value>主页</value>
+    </data>
+    <data name="Profile" xml:space="preserve">
+        <value>个人</value>
+    </data>
+    <data name="AssetGoesHere" xml:space="preserve">
+        <value>输入资产详情</value>
+    </data>
+    <data name="AddAsset" xml:space="preserve">
+        <value>新增资产</value>
+    </data>
+    <data name="ChoosePeriod" xml:space="preserve">
+        <value>选择时长</value>
+    </data>
+    <data name="Daily" xml:space="preserve">
+        <value>每日</value>
+    </data>
+    <data name="Weekly" xml:space="preserve">
+        <value>每周</value>
+    </data>
+    <data name="Monthly" xml:space="preserve">
+        <value>每月</value>
+    </data>
+    <data name="Yearly" xml:space="preserve">
+        <value>每年</value>
+    </data>
+    <data name="AllTime" xml:space="preserve">
+        <value>全部</value>
+    </data>
+    <data name="Cancel" xml:space="preserve">
+        <value>取消</value>
+    </data>
+    <data name="Charity" xml:space="preserve">
+        <value>慈善</value>
+    </data>
+    <data name="FoodDrink" xml:space="preserve">
+        <value>饮食</value>
+    </data>
+    <data name="Travel" xml:space="preserve">
+        <value>旅行</value>
+    </data>
+    <data name="Study" xml:space="preserve">
+        <value>学习</value>
+    </data>
+    <data name="Salary" xml:space="preserve">
+        <value>工资</value>
+    </data>
+    <data name="Business" xml:space="preserve">
+        <value>商业</value>
+    </data>
+    <data name="Savings" xml:space="preserve">
+        <value>存款</value>
+    </data>
+    <data name="Reward" xml:space="preserve">
+        <value>奖励</value>
+    </data>
+    <data name="EnterAssetName" xml:space="preserve">
+        <value>输入资产名称</value>
+    </data>
+    <data name="AssetChart" xml:space="preserve">
+        <value>资产图表</value>
+    </data>
+    <data name="CreateNow" xml:space="preserve">
+        <value>立刻创建</value>
+    </data>
+    <data name="ItemAdd" xml:space="preserve">
+        <value>新增项目</value>
+    </data>
+    <data name="ItemChart" xml:space="preserve">
+        <value>项目图表</value>
+    </data>
+    <data name="General" xml:space="preserve">
+        <value>通用</value>
+    </data>
+    <data name="Slogen" xml:space="preserve">
+        <value>个人花销管理,存款增长!</value>
+    </data>
+    <data name="LoginWithFacebook" xml:space="preserve">
+        <value>Facebook账号登入</value>
+    </data>
+    <data name="LoginWithGoogle" xml:space="preserve">
+        <value>Google账号登入</value>
+    </data>
+    <data name="LoginWithApple" xml:space="preserve">
+        <value>Apple账号登入</value>
+    </data>
+    <data name="NoThankYou" xml:space="preserve">
+        <value>不了,谢谢</value>
+    </data>
+    <data name="AssetBalance" xml:space="preserve">
+        <value>资产余额</value>
+    </data>
+    <data name="ChooseCurrency" xml:space="preserve">
+        <value>选择货币</value>
+    </data>
+    <data name="Device" xml:space="preserve">
+        <value>设备 2/5</value>
+    </data>
+    <data name="Destruction" xml:space="preserve">
+        <value>关闭</value>
+    </data>
+    <data name="Cash" xml:space="preserve">
+        <value>现金</value>
+    </data>
+    <data name="Card" xml:space="preserve">
+        <value>银行卡</value>
+    </data>
+    <data name="Bitcoin" xml:space="preserve">
+        <value>比特币</value>
+    </data>
+    <data name="Property" xml:space="preserve">
+        <value>不动产</value>
+    </data>
+    <data name="Type" xml:space="preserve">
+        <value>类型</value>
+    </data>
+    <data name="Balance" xml:space="preserve">
+        <value>余额</value>
+    </data>
+    <data name="Name" xml:space="preserve">
+        <value>名称</value>
+    </data>
+    <data name="ChooseType" xml:space="preserve">
+        <value>选择类别</value>
+    </data>
+    <data name="Medicine" xml:space="preserve">
+        <value>医药</value>
+    </data>
+    <data name="Cinema" xml:space="preserve">
+        <value>电影院</value>
+    </data>
+    <data name="Date" xml:space="preserve">
+        <value>日期</value>
+    </data>
+    <data name="Create" xml:space="preserve">
+        <value>创建</value>
+    </data>
+    <data name="TotalBalance" xml:space="preserve">
+        <value>总余额</value>
+    </data>
+</root>

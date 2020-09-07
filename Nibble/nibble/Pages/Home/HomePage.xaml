@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentPage
+             Title="{x:Static resources:AppResources.Assets}"
+             xmlns:viewModel="clr-namespace:nibble.ViewModels.Home"
+             x:TypeArguments="viewModel:HomePageViewModel"
+             xmlns:base="clr-namespace:nibble.Pages"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nibble.Pages.Home.HomePage"
+             xmlns:local="clr-namespace:nibble.Constants"
+             xmlns:resources="clr-namespace:nibble">
+
+    <!-- NavigationBar Items Start -->
+    <base:BaseContentPage.ToolbarItems>
+
+        <!-- Add Assert Start -->
+        <ToolbarItem  Text="{x:Static resources:AppResources.AddAsset}" 
+                      IconImageSource="asset_add"
+                      Order="Primary"
+                      Priority="1"
+                      Command="{Binding AddAssetCommand}"/>
+        <!-- Add Asset End -->
+
+        <!-- Show Asset Chart Start -->
+        <ToolbarItem Text="{x:Static resources:AppResources.AssetChart}"
+                      IconImageSource="asset_chart"
+                      Order="Primary"
+                      Priority="0"
+                      Command="{Binding ShowAssetChartCommand}"/>
+        <!-- Show Asset Chart End -->
+
+    </base:BaseContentPage.ToolbarItems>
+    <!-- NavigationBar Items End -->
+    
+    <base:BaseContentPage.Content>
+        <StackLayout BackgroundColor="White">
+
+            <!-- Search Start -->
+            <SearchBar Placeholder="{x:Static resources:AppResources.SearchAssets}"
+                       Text="{Binding Keyword}"
+                       BackgroundColor="White"/>
+            <!-- Search End -->
+            
+            <!-- No Assets Start -->
+            <StackLayout IsVisible="false">
+                <Image Source="no_assets" Margin="0,64,0,0"/>
+                <Label Text="Don't have assets!"
+                       HorizontalOptions="Center"
+                       FontFamily="lato-regular"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       Margin="0,24,0,0"/>
+
+                <Button Text="{x:Static resources:AppResources.CreateNow}"
+                        TextColor="white"
+                        BackgroundColor="{Binding Source={x:Static local:Theme.Purple}}"
+                        Margin="90,26,90,0"
+                        HeightRequest="48"
+                        CornerRadius="24"
+                        FontFamily="Poppins-Regular"
+                        FontSize="17"
+                        Command="{Binding CreateNowCommand}"/>
+            </StackLayout>
+            <!-- No Assets End -->
+
+            <!-- ListView Start -->
+            <ListView ItemsSource="{Binding FilteredAssetViewModels}"
+                      RowHeight="70"
+                      SeparatorVisibility="None"
+                      IsPullToRefreshEnabled="True"
+                      IsRefreshing="{Binding IsPullDownRefreshing}"
+                      RefreshCommand="{Binding PullDownRefreshCommand}"
+                      ItemTapped="ListView_AssetTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout
+                                BackgroundColor="White"
+                                Orientation="Horizontal">
+
+                                <Image Source="{Binding TypeImage}"
+                                       WidthRequest="35"
+                                       HeightRequest="35"
+                                       Margin="16,0,16,0"/>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Name}"
+                                           Margin="0,10,0,0"
+                                           FontFamily="Poppins-Regular"
+                                           FontSize="18"
+                                           HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding BalanceWithCurrencySign}"
+                                           FontFamily="Lato-Regular"
+                                           FontSize="14"
+                                           TextColor="{Binding Source={x:Static local:Theme.Accent}}"
+                                           HorizontalTextAlignment="Start"
+                                           HorizontalOptions="Start"/>
+                                </StackLayout>
+                                <Image Source="more"
+                                       HorizontalOptions="EndAndExpand"
+                                       Margin="0,0,16,0"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!-- ListView End -->
+
+        </StackLayout>
+    </base:BaseContentPage.Content>
+</base:BaseContentPage>

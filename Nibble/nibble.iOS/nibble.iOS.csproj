@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{644F0A4F-DA12-4595-9594-A7D239D1767B}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>nibble.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>nibble.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>None</MtouchLink>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderers\SlidingSegmentViewRenderer.cs" />
+    <Compile Include="Controls\CLSlidingSegmentView.cs" />
+    <Compile Include="Renderers\MainTabbedPageRenderer.cs" />
+    <Compile Include="Controls\CLMainTabBar.cs" />
+    <Compile Include="Services\ToastService.cs" />
+    <Compile Include="Services\TabBarHidableService.cs" />
+    <Compile Include="Renderers\MainNavigationPageRenderer.cs" />
+    <Compile Include="Renderers\ContentPageRenderer.cs" />
+    <Compile Include="Renderers\BorderlessDatePickerRenderer.cs" />
+    <Compile Include="Services\FormInitService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.356" />
+    <PackageReference Include="Xamarin.TestCloud.Agent" Version="0.21.9" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />
+    <PackageReference Include="Masonry">
+      <Version>1.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="XamForms.Controls.Calendar">
+      <Version>1.1.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\nibble\nibble.csproj">
+      <Project>{98ED2C0C-519D-4598-945D-64B24655731A}</Project>
+      <Name>nibble</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo.png" />
+    <BundleResource Include="Resources\logo%402x.png" />
+    <BundleResource Include="Resources\logo%403x.png" />
+    <BundleResource Include="Resources\facebook.png" />
+    <BundleResource Include="Resources\facebook%402x.png" />
+    <BundleResource Include="Resources\facebook%403x.png" />
+    <BundleResource Include="Resources\apple.png" />
+    <BundleResource Include="Resources\apple%402x.png" />
+    <BundleResource Include="Resources\apple%403x.png" />
+    <BundleResource Include="Resources\google.png" />
+    <BundleResource Include="Resources\google%402x.png" />
+    <BundleResource Include="Resources\google%403x.png" />
+    <BundleResource Include="Resources\avatar.png" />
+    <BundleResource Include="Resources\avatar%402x.png" />
+    <BundleResource Include="Resources\avatar%403x.png" />
+    <BundleResource Include="Resources\no_assets.png" />
+    <BundleResource Include="Resources\no_assets%402x.png" />
+    <BundleResource Include="Resources\no_assets%403x.png" />
+    <BundleResource Include="Resources\dark_mode.png" />
+    <BundleResource Include="Resources\dark_mode%402x.png" />
+    <BundleResource Include="Resources\dark_mode%403x.png" />
+    <BundleResource Include="Resources\date.png" />
+    <BundleResource Include="Resources\date%402x.png" />
+    <BundleResource Include="Resources\date%403x.png" />
+    <BundleResource Include="Resources\note.png" />
+    <BundleResource Include="Resources\note%402x.png" />
+    <BundleResource Include="Resources\note%403x.png" />
+    <BundleResource Include="Resources\asset_balance.png" />
+    <BundleResource Include="Resources\asset_balance%402x.png" />
+    <BundleResource Include="Resources\asset_balance%403x.png" />
+    <BundleResource Include="Resources\asset_name.png" />
+    <BundleResource Include="Resources\asset_name%402x.png" />
+    <BundleResource Include="Resources\asset_name%403x.png" />
+    <BundleResource Include="Resources\asset_type.png" />
+    <BundleResource Include="Resources\asset_type%402x.png" />
+    <BundleResource Include="Resources\asset_type%403x.png" />
+    <BundleResource Include="Resources\home.png" />
+    <BundleResource Include="Resources\home%402x.png" />
+    <BundleResource Include="Resources\home%403x.png" />
+    <BundleResource Include="Resources\profile.png" />
+    <BundleResource Include="Resources\profile%402x.png" />
+    <BundleResource Include="Resources\profile%403x.png" />
+    <BundleResource Include="Resources\notification.png" />
+    <BundleResource Include="Resources\currency.png" />
+    <BundleResource Include="Resources\currency%402x.png" />
+    <BundleResource Include="Resources\currency%403x.png" />
+    <BundleResource Include="Resources\iphone.png" />
+    <BundleResource Include="Resources\iphone%402x.png" />
+    <BundleResource Include="Resources\iphone%403x.png" />
+    <BundleResource Include="Resources\notification%402x.png" />
+    <BundleResource Include="Resources\notification%403x.png" />
+    <BundleResource Include="Resources\sumsang.png" />
+    <BundleResource Include="Resources\sumsang%402x.png" />
+    <BundleResource Include="Resources\asset_add.png" />
+    <BundleResource Include="Resources\asset_add%402x.png" />
+    <BundleResource Include="Resources\asset_add%403x.png" />
+    <BundleResource Include="Resources\asset_chart.png" />
+    <BundleResource Include="Resources\asset_chart%402x.png" />
+    <BundleResource Include="Resources\asset_chart%403x.png" />
+    <BundleResource Include="Resources\bitcoin.png" />
+    <BundleResource Include="Resources\bitcoin%402x.png" />
+    <BundleResource Include="Resources\bitcoin%403x.png" />
+    <BundleResource Include="Resources\card.png" />
+    <BundleResource Include="Resources\card%402x.png" />
+    <BundleResource Include="Resources\card%403x.png" />
+    <BundleResource Include="Resources\cash.png" />
+    <BundleResource Include="Resources\cash%402x.png" />
+    <BundleResource Include="Resources\cash%403x.png" />
+    <BundleResource Include="Resources\property.png" />
+    <BundleResource Include="Resources\property%402x.png" />
+    <BundleResource Include="Resources\property%403x.png" />
+    <BundleResource Include="Resources\savings.png" />
+    <BundleResource Include="Resources\savings%402x.png" />
+    <BundleResource Include="Resources\savings%403x.png" />
+    <BundleResource Include="Resources\reward.png" />
+    <BundleResource Include="Resources\reward%402x.png" />
+    <BundleResource Include="Resources\reward%403x.png" />
+    <BundleResource Include="Resources\business.png" />
+    <BundleResource Include="Resources\business%402x.png" />
+    <BundleResource Include="Resources\business%403x.png" />
+    <BundleResource Include="Resources\salary.png" />
+    <BundleResource Include="Resources\salary%402x.png" />
+    <BundleResource Include="Resources\salary%403x.png" />
+    <BundleResource Include="Resources\food.png" />
+    <BundleResource Include="Resources\food%402x.png" />
+    <BundleResource Include="Resources\food%403x.png" />
+    <BundleResource Include="Resources\bill.png" />
+    <BundleResource Include="Resources\bill%402x.png" />
+    <BundleResource Include="Resources\bill%403x.png" />
+    <BundleResource Include="Resources\charity.png" />
+    <BundleResource Include="Resources\charity%402x.png" />
+    <BundleResource Include="Resources\charity%403x.png" />
+    <BundleResource Include="Resources\travel.png" />
+    <BundleResource Include="Resources\travel%403x.png" />
+    <BundleResource Include="Resources\travel%402x.png" />
+    <BundleResource Include="Resources\more.png" />
+    <BundleResource Include="Resources\more%402x.png" />
+    <BundleResource Include="Resources\more%403x.png" />
+    <BundleResource Include="Resources\cinema.png" />
+    <BundleResource Include="Resources\cinema%402x.png" />
+    <BundleResource Include="Resources\cinema%403x.png" />
+    <BundleResource Include="Resources\medicine.png" />
+    <BundleResource Include="Resources\medicine%402x.png" />
+    <BundleResource Include="Resources\medicine%403x.png" />
+    <BundleResource Include="Resources\sumsang%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Renderers\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+</Project>

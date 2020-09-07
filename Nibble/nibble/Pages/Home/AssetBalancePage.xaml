@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentPage
+    Title="{x:Static resources:AppResources.AssetBalance}"
+    xmlns:viewModel="clr-namespace:nibble.ViewModels.Home"
+    x:TypeArguments="viewModel:AssetBalancePageViewModel"
+    xmlns:base="clr-namespace:nibble.Pages"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="nibble.Pages.Home.AssetBalancePage"
+    xmlns:resources="clr-namespace:nibble">
+    <base:BaseContentPage.Content>
+        <StackLayout BackgroundColor="White">
+                <!-- Due to iOS View constrainted to BottomLayoutConstrait
+                and we cannot modify subviews constraints in UIViewController
+                ,so We can only set platform-specific bottom margin here
+                (because eventually it will be compiled to iOS autolayout)
+                SO IT WILL NOT SHOW SCREEN FLASH
+                -->
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <OnPlatform.iOS>
+                            0, 0, 0, -80
+                        </OnPlatform.iOS>
+                    </OnPlatform>
+                </StackLayout.Margin>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="USD"
+                       FontFamily="Lato-Regular"
+                       FontSize="12"
+                       BackgroundColor="LightGray"
+                       VerticalOptions="Center"
+                       Padding="5"
+                       Margin="10,10,0,0"/>
+                <Entry Placeholder="00.00"
+                       BackgroundColor="White"
+                       Keyboard="Numeric"
+                       x:Name="balanceInput"
+                       Text="{Binding Balance}"
+                       TextColor="{Binding BalanceTextColor}"
+                       HorizontalOptions="FillAndExpand"
+                  HorizontalTextAlignment="Center"
+                  Margin="30,32,30,0"
+                  HeightRequest="48"
+                  />
+            </StackLayout>
+
+            <Button Text="{x:Static resources:AppResources.Done}"
+                   Command="{Binding SaveCommand}"
+                    IsEnabled="{Binding IsSaveButtonEnabled}"
+                    BackgroundColor="{Binding SaveButtonBackgroundColor}"
+                   Margin="40,40,40,0"
+                   HeightRequest="48"
+                   CornerRadius="24"
+                   TextColor="White"/>
+        </StackLayout>
+    </base:BaseContentPage.Content>
+</base:BaseContentPage>

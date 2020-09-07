@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentPage
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nibble.Pages.Auth.LoginPage"
+             xmlns:resources="clr-namespace:nibble"
+             xmlns:viewModel="clr-namespace:nibble.ViewModels.Auth"
+             x:TypeArguments="viewModel:LoginPageViewModel"
+             xmlns:local="clr-namespace:nibble.Constants"
+             xmlns:base="clr-namespace:nibble.Pages">
+
+    <base:BaseContentPage.Content>
+        <StackLayout Spacing="0"
+                     BackgroundColor="White">
+            <Image Source="logo.png" Margin="0,150,0,20"
+                   WidthRequest="120"
+                   HeightRequest="120"/>
+            <Label Text="{x:Static resources:AppResources.Slogen}"
+                   Margin="40,0,40,0"
+                   HorizontalTextAlignment="Center"
+                   FontFamily="Poppins-Regular"
+                   FontSize="20"/>
+            <StackLayout Spacing="0"
+                         VerticalOptions="EndAndExpand"
+                         BackgroundColor="White">
+                <Button Text="{x:Static resources:AppResources.LoginWithFacebook}"
+                        FontFamily="lato-Regular"
+                        ImageSource="facebook"
+                        FontSize="18"
+                        Margin="46,0,46,16"
+                        TextColor="White"
+                        Command="{Binding LoginWithFaceBookCommand}"
+                        BackgroundColor="{Binding Source={x:Static local:Theme.Accent}}"
+                        CornerRadius="24"
+                        HeightRequest="48"/>
+                <Button Text="{x:Static resources:AppResources.LoginWithGoogle}"
+                        FontFamily="lato-Regular"
+                        FontSize="18"
+                        ImageSource="google"
+                        Margin="46,0,46,16"
+                        TextColor="White"
+                        Command="{Binding LoginWithGoogleCommand}"
+                        BackgroundColor="{Binding Source={x:Static local:Theme.Red}}"
+                        CornerRadius="24"
+                        HeightRequest="48"/>
+                <Button Text="{x:Static resources:AppResources.LoginWithApple}"
+                        FontFamily="lato-Regular"
+                        FontSize="18"
+                        ImageSource="apple"
+                        Margin="46,0,46,16"
+                        TextColor="White"
+                        Command="{Binding LoginWithAppleCommand}"
+                        BackgroundColor="{Binding Source={x:Static local:Theme.Dark}}"
+                        CornerRadius="24"
+                        HeightRequest="48"/>
+                <Button Text="{x:Static resources:AppResources.NoThankYou}"
+                        FontSize="13"
+                        TextColor="Purple"
+                        HorizontalOptions="Center"
+                        BackgroundColor="White"
+                        Command="{Binding NotLoginCommand}"
+                        FontAttributes="Bold"
+                        Margin="0,32,0,46"/>
+            </StackLayout>
+        </StackLayout>
+
+    </base:BaseContentPage.Content>
+</base:BaseContentPage>

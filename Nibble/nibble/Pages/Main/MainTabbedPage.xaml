@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="nibble.Pages.Main.MainTabbedPage"
+            xmlns:home="clr-namespace:nibble.Pages.Home"
+            xmlns:homeViewModel="clr-namespace:nibble.ViewModels.Home"
+            xmlns:profile="clr-namespace:nibble.Pages.Profile"
+            xmlns:profileViewModel="clr-namespace:nibble.ViewModels.Profile"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            xmlns:main="clr-namespace:nibble.Pages.Main"
+            xmlns:resources="clr-namespace:nibble"
+            >
+
+    <!-- HomePage Start -->
+    <main:MainNavigationPage Title="{x:Static resources:AppResources.Home}"
+                    Pushed="NavigationPage_Pushed"
+                    Popped="NavigationPage_Popped"
+                    IconImageSource="home.png"
+                    BarBackgroundColor="White"
+                    BarTextColor="Purple">
+        <x:Arguments>
+            <home:HomePage>
+                <x:Arguments>
+                    <homeViewModel:HomePageViewModel/>
+                </x:Arguments>
+            </home:HomePage>
+        </x:Arguments>
+    </main:MainNavigationPage>
+    <!-- HomePage End -->
+
+    <!-- ProfilePage Start -->
+    <profile:ProfilePage
+        Title="{x:Static resources:AppResources.Profile}"
+        IconImageSource="profile.png">
+                <x:Arguments>
+                    <profileViewModel:ProfilePageViewModel/>
+                </x:Arguments>
+    </profile:ProfilePage>
+    <!-- ProfilePage End -->
+</TabbedPage>
+
+
+

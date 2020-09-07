@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentPage
+    Title="{x:Static resources:AppResources.TransactionName}"
+    xmlns:viewModel="clr-namespace:nibble.ViewModels.Transaction"
+    x:TypeArguments="viewModel:TransactionNamePageViewModel"
+    xmlns:base="clr-namespace:nibble.Pages"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="nibble.Pages.Transaction.TransactionNamePage"
+    xmlns:resources="clr-namespace:nibble">
+    <base:BaseContentPage.Content>
+        <StackLayout BackgroundColor="White">
+
+                <!-- Due to iOS View constrainted to BottomLayoutConstrait
+                and we cannot modify subviews constraints in UIViewController
+                ,so We can only set platform-specific bottom margin here
+                (because eventually it will be compiled to iOS autolayout)
+                SO IT WILL NOT SHOW SCREEN FLASH
+                -->
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <OnPlatform.iOS>
+                            0, 0, 0, -80
+                        </OnPlatform.iOS>
+                    </OnPlatform>
+                </StackLayout.Margin>
+
+            <Entry Placeholder="{x:Static resources:AppResources.TypeSomething}"
+                   Text="{Binding Name}"
+                  Margin="30,32,30,0"
+                  HeightRequest="48"
+                   BackgroundColor="White"
+                  x:Name="nameEntry"
+                  />
+            <Button Text="{x:Static resources:AppResources.Done}"
+                   Command="{Binding SaveCommand}"
+                   FontFamily="Poppins-Regular"
+                   FontSize="16"
+                   Margin="40,40,40,0"
+                   HeightRequest="48"
+                   CornerRadius="24"
+                   IsEnabled="{Binding IsSaveButtonEnabled}"
+                   BackgroundColor="{Binding SaveButtonBackgroundColor}"
+                   TextColor="White"/>
+        </StackLayout>
+    </base:BaseContentPage.Content>
+</base:BaseContentPage>

@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentPage
+    Title="{x:Static resources:AppResources.ChartExpense}"
+    xmlns:base="clr-namespace:nibble.Pages"
+    xmlns:viewModel="clr-namespace:nibble.ViewModels.Chart"
+    x:TypeArguments="viewModel:ChartExpensePageViewModel"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="nibble.Pages.Chart.ChartExpensePage"
+    xmlns:theme="clr-namespace:nibble.Constants"
+    xmlns:local="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    xmlns:resources="clr-namespace:nibble">
+
+    <!-- NavigationBar Items Start -->
+    <base:BaseContentPage.ToolbarItems>
+
+        <!-- Period Start -->
+        <ToolbarItem  Text="{x:Static resources:AppResources.ChoosePeriod}"
+                      IconImageSource="date"
+                      Order="Primary"
+                      Priority="1"
+                      Command="{Binding ChoosePeriodCommand}"/>
+        <!-- Period End -->
+
+    </base:BaseContentPage.ToolbarItems>
+    <!-- NavigationBar Items End -->
+
+    <base:BaseContentPage.Content>
+        <StackLayout BackgroundColor="White">
+
+            <!-- Top Button Start -->
+            <Frame CornerRadius="5"
+                   Padding="0"
+                   HeightRequest="100"
+                   HasShadow="False"
+                   BackgroundColor="{Binding Source={x:Static theme:Theme.Red}}"
+                   Margin="16,16,16,16">
+                <StackLayout>
+                    <Label Text="$5,248.00"
+                           TextColor="White"
+                           Margin="0,20,0,0"
+                           FontFamily="Poppins-Regular"
+                           FontSize="20"
+                           HorizontalTextAlignment="Center"/>
+                    <Label Text="{x:Static resources:AppResources.Expense}"
+                           TextColor="{Binding Source={x:Static theme:Theme.Silver}}"
+                           HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Frame>
+            <!-- Top Button End -->
+
+            <!-- Canvas Start -->
+            <local:SKCanvasView x:Name="canvas"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                BackgroundColor="White">
+
+                <local:SKCanvasView.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <OnPlatform.iOS>
+                            40, 40, 40,40
+                        </OnPlatform.iOS>
+                    </OnPlatform>
+                </local:SKCanvasView.Margin>
+
+            </local:SKCanvasView>
+            <!-- Canvas End -->
+
+            <!-- Panels Start -->
+            <Grid BackgroundColor="White"
+                  HeightRequest="250"
+                  Margin="0,0,0,0">
+                <!-- Due to iOS View constrainted to BottomLayoutConstrait
+                and we cannot modify subviews constraints in UIViewController
+                ,so We can only set platform-specific bottom margin here
+                (because eventually it will be compiled to iOS autolayout)
+                SO IT WILL NOT SHOW SCREEN FLASH
+                -->
+                <Grid.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <OnPlatform.iOS>
+                            0, 0, 0, -80
+                        </OnPlatform.iOS>
+                    </OnPlatform>
+                </Grid.Margin>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120" />
+                    <RowDefinition Height="120" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Charity Start -->
+                <Frame
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="24,10,12,10"
+                       CornerRadius="5"
+                       HasShadow="False"
+                       OutlineColor="LightGray" 
+                       Padding="0">
+                    <StackLayout Padding="10">
+                        <Image Source="charity"
+                               HorizontalOptions="Start"/>
+                        <Label Text="$7,200.00"
+                               FontFamily="Lato-Regular"
+                               FontAttributes="Bold"
+                               FontSize="18"/>
+                        <Label Text="{x:Static resources:AppResources.Charity}"
+                               FontFamily="Poppins-Regular"
+                               FontSize="14"
+                               TextColor="{Binding Source={x:Static theme:Theme.Silver}}"/>
+                    </StackLayout>
+                </Frame>
+                <!-- Charity End -->
+
+                <!-- Food&Drink Start -->
+                <Frame
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Margin="12,10,24,10"
+                       CornerRadius="5"
+                       HasShadow="False"
+                       OutlineColor="LightGray" 
+                       Padding="0">
+                    <StackLayout Padding="10">
+                        <Image Source="food"
+                               HorizontalOptions="Start"/>
+                        <Label Text="$3,456.00"
+                               FontFamily="Lato-Regular"
+                               FontAttributes="Bold"
+                               FontSize="18"/>
+                        <Label Text="{x:Static resources:AppResources.FoodDrink}"
+                               FontFamily="Poppins-Regular"
+                               FontSize="14"
+                               TextColor="{Binding Source={x:Static theme:Theme.Silver}}"/>
+                    </StackLayout>
+                </Frame>
+                <!-- Food&Drink End -->
+
+                <!-- Travel Start -->
+                <Frame
+                       Margin="24,0,12,20"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       CornerRadius="5"
+                       HasShadow="False"
+                       OutlineColor="LightGray" 
+                       Padding="0">
+                    <StackLayout Padding="10">
+                        <Image Source="travel"
+                               HorizontalOptions="Start"/>
+                        <Label Text="$4,628.00"
+                               FontFamily="Lato-Regular"
+                               FontAttributes="Bold"
+                               FontSize="18"/>
+                        <Label Text="{x:Static resources:AppResources.Travel}"
+                               FontFamily="Poppins-Regular"
+                               FontSize="14"
+                               TextColor="{Binding Source={x:Static theme:Theme.Silver}}"/>
+                    </StackLayout>
+                </Frame>
+                <!-- Travel End -->
+
+                <!-- Bill Start -->
+                <Frame
+                       Margin="12,0,24,20"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       CornerRadius="5"
+                       HasShadow="False"
+                       OutlineColor="LightGray" 
+                       Padding="0">
+                    <StackLayout Padding="10">
+                        <Image Source="bill"
+                               HorizontalOptions="Start"/>
+                        <Label Text="$3,642.00"
+                               FontFamily="Lato-Regular"
+                               FontAttributes="Bold"
+                               FontSize="18"/>
+                        <Label Text="{x:Static resources:AppResources.Study}"
+                               FontFamily="Poppins-Regular"
+                               FontSize="14"
+                               TextColor="{Binding Source={x:Static theme:Theme.Silver}}"/>
+                    </StackLayout>
+                </Frame>
+                <!-- Bill End -->
+
+            </Grid>
+            <!-- Panels End -->
+
+        </StackLayout>
+    </base:BaseContentPage.Content>
+</base:BaseContentPage>

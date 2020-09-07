@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentPage
+    Title="{x:Static resources:AppResources.Transaction}"
+    xmlns:viewModel="clr-namespace:nibble.ViewModels.Transaction"
+    x:TypeArguments="viewModel:TransactionPageViewModel"
+    xmlns:base="clr-namespace:nibble.Pages"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="nibble.Pages.Transaction.TransactionPage"
+    xmlns:resources="clr-namespace:nibble"
+    xmlns:control="clr-namespace:nibble.Controls"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" >
+
+    <base:BaseContentPage.Content>
+        <AbsoluteLayout>
+
+                <!-- Due to iOS View constrainted to BottomLayoutConstrait
+                and we cannot modify subviews constraints in UIViewController
+                ,so We can only set platform-specific bottom margin here
+                (because eventually it will be compiled to iOS autolayout)
+                SO IT WILL NOT SHOW SCREEN FLASH
+                -->
+                <AbsoluteLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <OnPlatform.iOS>
+                            0, 0, 0, -80
+                        </OnPlatform.iOS>
+                    </OnPlatform>
+                </AbsoluteLayout.Margin>
+
+            <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All"
+                         BackgroundColor="White">
+
+                <TableView Intent="Settings"
+                       BackgroundColor="White"
+                       RowHeight="70">
+                    <TableRoot>
+                        <TableSection>
+
+                            <!-- SlidingSegmentView Start -->
+                            <ViewCell>
+                                <StackLayout HeightRequest="70">
+                                    <control:SlidingSegmentView
+                                        HeightRequest="40"
+                                        Margin="32,0,32,0"
+                                        Configs="{Binding Configs}"
+                                        BackgroundColor="#F7F8F9"
+                                        Duration="500"
+                                        Command="{Binding TapSegmentCommand}"
+                                        VerticalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </ViewCell>
+                            <!-- SlidingSegmentView End -->
+
+                            <ViewCell Tapped="Amount_Tapped">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="USD"
+                                       WidthRequest="40"
+                                       HeightRequest="24"
+                                       VerticalOptions="Center"
+                                       Margin="20,0,0,0"
+                                       Padding="5,5,0,0"
+                                       FontSize="12"
+                                       HorizontalOptions="Center"
+                                       BackgroundColor="LightGray"/>
+                                    <Label Text="{Binding Amount}"
+                                       TextColor="{Binding AmountTextColor}"
+                                       HorizontalOptions="CenterAndExpand"
+                                       VerticalOptions="Center"
+                                       FontFamily="Poppins-Regular"
+                                       FontSize="34"
+                                       FontAttributes="Bold"/>
+                                </StackLayout>
+                            </ViewCell>
+
+                            <ViewCell Tapped="Type_Tapped">
+                                <StackLayout Orientation="Horizontal"
+                                         Margin="32,0,32,0"
+                                         >
+                                    <Image Source="{Binding TypeImage}"
+                                           Margin="0,0,5,0"/>
+                                    <Label
+                                        Text="{Binding TypeName}"
+                                        TextColor="{Binding TypeTextColor}"
+                                        VerticalOptions="Center"/>
+                                    <Image Source="more"
+                                       HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </ViewCell>
+
+                            <ViewCell Tapped="Note_Tapped">
+                                <StackLayout Orientation="Horizontal"
+                                         Margin="32,0,32,0">
+                                    <Image Source="note" Margin="0,0,5,0"/>
+                                    <Label Text="{Binding NameText}"
+                                           TextColor="{Binding NameTextColor}"
+                                 VerticalOptions="Center"/>
+                                    <Image Source="more"
+                                       HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </ViewCell>
+
+                            <ViewCell Tapped="Calendar_Tapped">
+                                <StackLayout Orientation="Horizontal"
+                                         Margin="32,0,32,0">
+                                    <Image Source="date" Margin="0,0,5,0"/>
+                                    <!--<Label Text="{Binding TimestampText}"
+                                           TextColor="{Binding TimestampTextColor}"
+                                    VerticalOptions="Center"/>-->
+                                    <!-- DatePicker Start -->
+                                    <control:BorderlessDatePicker VerticalOptions="FillAndExpand"
+                                                HorizontalOptions="FillAndExpand"
+                                                FontSize="14"
+                                                Date="{Binding TimestampText}"
+                                                TextColor="{Binding TimestampTextColor}">
+                                        <DatePicker.Format>MM-dd-yyyy</DatePicker.Format>
+                                        <DatePicker.MinimumDate>
+                                            <sys:DateTime x:FactoryMethod="Parse">
+                                                <x:Arguments>
+                                                    <x:String>Jan 1 2000</x:String>
+                                                </x:Arguments>
+                                            </sys:DateTime>
+                                        </DatePicker.MinimumDate>
+                                        <DatePicker.MaximumDate>
+                                            <sys:DateTime x:FactoryMethod="Parse">
+                                                <x:Arguments>
+                                                    <x:String>Dec 31 2050</x:String>
+                                                </x:Arguments>
+                                            </sys:DateTime>
+                                        </DatePicker.MaximumDate>
+                                    </control:BorderlessDatePicker>
+                                    <!-- DatePicker End -->
+
+                                    <Image Source="more"
+                                       HorizontalOptions="End"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+                <!-- TableView End -->
+
+
+                <!-- Save Button Start -->
+                <Button Text="{x:Static resources:AppResources.Save}"
+                    TextColor="White"
+                    HeightRequest="48"
+                    CornerRadius="24"
+                        Command="{Binding SaveCommand}"
+                        IsEnabled="{Binding IsSaveButtonEnabled}"
+                        BackgroundColor="{Binding SaveButtonBackgroundColor}"
+                    FontFamily="Poppins-Regular"
+                    FontSize="16"
+                    Margin="40,0,40,200"
+                    />
+                <!-- Save Button End -->
+            </StackLayout>
+
+        </AbsoluteLayout>
+    </base:BaseContentPage.Content>
+</base:BaseContentPage>

@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentPage
+    Title="{x:Static resources:AppResources.ChartIncome}"
+    xmlns:viewModel="clr-namespace:nibble.ViewModels.Chart"
+    x:TypeArguments="viewModel:ChartIncomePageViewModel"
+    xmlns:base="clr-namespace:nibble.Pages"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="nibble.Pages.Chart.ChartIncomePage"
+    xmlns:theme="clr-namespace:nibble.Constants"
+    xmlns:local="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    xmlns:resources="clr-namespace:nibble">
+
+    <!-- NavigationBar Items Start -->
+    <base:BaseContentPage.ToolbarItems>
+
+        <!-- Period Start -->
+        <ToolbarItem  Text="{x:Static resources:AppResources.ChoosePeriod}"
+                      IconImageSource="date"
+                      Order="Primary"
+                      Priority="1"
+                      Command="{Binding ChoosePeriodCommand}"/>
+        <!-- Period End -->
+
+    </base:BaseContentPage.ToolbarItems>
+    <!-- NavigationBar Items End -->
+
+    <base:BaseContentPage.Content>
+        <StackLayout BackgroundColor="White">
+
+            <!-- Top Button Start -->
+            <Frame CornerRadius="5"
+                   HasShadow="False"
+                   Padding="0"
+                   HeightRequest="100"
+                   BackgroundColor="{Binding Source={x:Static theme:Theme.Accent}}"
+                   Margin="16,16,16,16">
+                <StackLayout>
+                    <Label Text="$18,456.00"
+                           TextColor="White"
+                           Margin="0,20,0,0"
+                           FontFamily="Poppins-Regular"
+                           FontSize="20"
+                           HorizontalTextAlignment="Center"/>
+                    <Label Text="5,248.00"
+                           TextColor="{Binding Source={x:Static theme:Theme.Silver}}"
+                           HorizontalTextAlignment="Center"/>
+                </StackLayout>
+            </Frame>
+            <!-- Top Button End -->
+
+            <!-- Canvas Start -->
+            <local:SKCanvasView x:Name="canvas"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                BackgroundColor="White">
+
+                <local:SKCanvasView.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <OnPlatform.iOS>
+                            40, 40, 40,40
+                        </OnPlatform.iOS>
+                    </OnPlatform>
+                </local:SKCanvasView.Margin>
+            </local:SKCanvasView>
+            <!-- Canvas End -->
+
+            <!-- Panels Start -->
+            <Grid BackgroundColor="White"
+                  HeightRequest="250"
+                  Margin="0,0,0,0">
+
+                <!-- Due to iOS View constrainted to BottomLayoutConstrait
+                and we cannot modify subviews constraints in UIViewController
+                ,so We can only set platform-specific bottom margin here
+                (because eventually it will be compiled to iOS autolayout)
+                SO IT WILL NOT SHOW SCREEN FLASH
+                -->
+                <Grid.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <OnPlatform.iOS>
+                            0, 0, 0, -80
+                        </OnPlatform.iOS>
+                    </OnPlatform>
+                </Grid.Margin>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120" />
+                    <RowDefinition Height="120" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Salary Start -->
+                <Frame
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="24,10,12,10"
+                       CornerRadius="5"
+                       HasShadow="False"
+                       OutlineColor="LightGray" 
+                       Padding="0">
+                    <StackLayout Padding="10">
+                        <Image Source="salary"
+                               HorizontalOptions="Start"/>
+                        <Label Text="$7,200.00"
+                               FontFamily="Lato-Regular"
+                               FontAttributes="Bold"
+                               FontSize="18"/>
+                        <Label Text="{x:Static resources:AppResources.Salary}"
+                               FontFamily="Poppins-Regular"
+                               FontSize="14"
+                               TextColor="{Binding Source={x:Static theme:Theme.Silver}}"/>
+                    </StackLayout>
+                </Frame>
+                <!-- Salary End -->
+
+                <!-- Business Start -->
+                <Frame
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Margin="12,10,24,10"
+                       CornerRadius="5"
+                       HasShadow="False"
+                       OutlineColor="LightGray" 
+                       Padding="0">
+                    <StackLayout Padding="10">
+                        <Image Source="business"
+                               HorizontalOptions="Start"/>
+                        <Label Text="$3,456.00"
+                               FontFamily="Lato-Regular"
+                               FontAttributes="Bold"
+                               FontSize="18"/>
+                        <Label Text="{x:Static resources:AppResources.Business}"
+                               FontFamily="Poppins-Regular"
+                               FontSize="14"
+                               TextColor="{Binding Source={x:Static theme:Theme.Silver}}"/>
+                    </StackLayout>
+                </Frame>
+                <!-- Business End -->
+
+                <!-- Savings Start -->
+                <Frame
+                       Margin="24,0,12,20"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       CornerRadius="5"
+                       HasShadow="False"
+                       OutlineColor="LightGray" 
+                       Padding="0">
+                    <StackLayout Padding="10">
+                        <Image Source="savings"
+                               HorizontalOptions="Start"/>
+                        <Label Text="$4,628.00"
+                               FontFamily="Lato-Regular"
+                               FontAttributes="Bold"
+                               FontSize="18"/>
+                        <Label Text="{x:Static resources:AppResources.Savings}"
+                               FontFamily="Poppins-Regular"
+                               FontSize="14"
+                               TextColor="{Binding Source={x:Static theme:Theme.Silver}}"/>
+                    </StackLayout>
+                </Frame>
+                <!-- Savings End -->
+
+                <!-- Reward Start -->
+                <Frame
+                       Margin="12,0,24,20"
+                       Grid.Row="1"
+                       Grid.Column="1"
+                       CornerRadius="5"
+                       HasShadow="False"
+                       OutlineColor="LightGray" 
+                       Padding="0">
+                    <StackLayout Padding="10">
+                        <Image Source="reward"
+                               HorizontalOptions="Start"/>
+                        <Label Text="$3,642.00"
+                               FontFamily="Lato-Regular"
+                               FontAttributes="Bold"
+                               FontSize="18"/>
+                        <Label Text="{x:Static resources:AppResources.Reward}"
+                               FontFamily="Poppins-Regular"
+                               FontSize="14"
+                               TextColor="{Binding Source={x:Static theme:Theme.Silver}}"/>
+                    </StackLayout>
+                </Frame>
+                <!-- Reward End -->
+
+            </Grid>
+            <!-- Panels End -->
+
+        </StackLayout>
+    </base:BaseContentPage.Content>
+</base:BaseContentPage>

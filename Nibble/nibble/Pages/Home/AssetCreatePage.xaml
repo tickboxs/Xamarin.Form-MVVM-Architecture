@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentPage
+    Title="{x:Static resources:AppResources.AddAsset}"
+    xmlns:viewModel="clr-namespace:nibble.ViewModels.Home"
+    x:TypeArguments="viewModel:AssetCreatePageViewModel"
+    xmlns:base="clr-namespace:nibble.Pages"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:nibble.Constants"
+    x:Class="nibble.Pages.Home.AssetCreatePage"
+    xmlns:resources="clr-namespace:nibble"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <base:BaseContentPage.Content>
+        <StackLayout BackgroundColor="White">
+
+                <!-- Due to iOS View constrainted to BottomLayoutConstrait
+                and we cannot modify subviews constraints in UIViewController
+                ,so We can only set platform-specific bottom margin here
+                (because eventually it will be compiled to iOS autolayout)
+                SO IT WILL NOT SHOW SCREEN FLASH
+                -->
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <OnPlatform.iOS>
+                            0, 0, 0, -80
+                        </OnPlatform.iOS>
+                    </OnPlatform>
+                </StackLayout.Margin>
+
+            <TableView
+                Intent="Form"
+                BackgroundColor="White"
+                       HeightRequest="300"
+                       VerticalOptions="Start"
+                       RowHeight="70">
+                
+                <TableRoot>
+                    
+                    <TableSection Title="{x:Static resources:AppResources.AssetGoesHere}">
+                        <ViewCell Tapped="InputNameTapped">
+                            <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         Margin="32,0,32,0"
+                                         >
+                                <Image Source="asset_name"
+                                       Margin="0,0,5,0"/>
+                                <Label Text="{Binding NameString}"
+                                       TextColor="{Binding NameTextColor}"
+                                       VerticalOptions="Center"
+                                       FontFamily="lato-regular"
+                                       FontSize="16"/>
+                            </StackLayout>
+                        </ViewCell>
+
+                        <ViewCell Tapped="ChooseTypeTapped">
+                            <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         Margin="32,0,32,0">
+                                <Image Source="{Binding TypeImage}"
+                                       Margin="0,0,5,0"/>
+                                <Label Text="{Binding TypeName}"
+                                       TextColor="{Binding TypeTextColor}"
+                                       VerticalOptions="Center"
+                                       FontFamily="lato-regular"
+                                       FontSize="16"/>
+                            </StackLayout>
+                        </ViewCell>
+
+                        <ViewCell Tapped="InputBalanceTapped">
+                            <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         Margin="32,0,32,0">
+                                <Image Source="asset_balance"
+                                       Margin="0,0,5,0"/>
+                                <Label Text="{Binding BalanceString}"
+                                       TextColor="{Binding BalanceTextColor}"
+                                       VerticalOptions="Center"
+                                       FontFamily="lato-regular"
+                                       FontSize="16"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+
+                </TableRoot>
+            </TableView>
+
+            <Button Text="{Binding SaveButtonName}"
+                    FontFamily="Poppins-Regular"
+                    FontSize="16"
+                   Margin="40,40,40,0"
+                   HeightRequest="48"
+                   CornerRadius="24"
+                    Command="{Binding SaveCommand}"
+                    IsEnabled="{Binding IsSaveButtonEnabled}"
+                   BackgroundColor="{Binding SaveButtonBackgroundColor}"
+                   TextColor="White"/>
+
+        </StackLayout>
+    </base:BaseContentPage.Content>
+</base:BaseContentPage>

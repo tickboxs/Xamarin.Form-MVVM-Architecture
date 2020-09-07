@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentPage
+             xmlns:viewModel="clr-namespace:nibble.ViewModels.Profile"
+             x:TypeArguments="viewModel:ProfilePageViewModel"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:base="clr-namespace:nibble.Pages"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:nibble.Constants"
+             x:Class="nibble.Pages.Profile.ProfilePage"
+             xmlns:resources="clr-namespace:nibble">
+    <base:BaseContentPage.Content>
+        <StackLayout Spacing="0"
+                     BackgroundColor="White">
+
+            <!-- User Avatar Start -->
+            <Image Source="avatar" WidthRequest="72" HeightRequest="72" Margin="0,50,0,0"/>
+            <!-- User Avatar End -->
+
+            <!-- User Name Start -->
+            <Label Text="Charlie Cai"
+                   HorizontalOptions="Center"
+                   Margin="0,12,0,0"
+                   BackgroundColor="White"
+                   FontFamily="Poppins-Regular"
+                   FontSize="16"/>
+            <!-- User Name End -->
+
+            <!-- User Email Start -->
+            <Label Text="cai.charlie@hotmail.com"
+                   HorizontalOptions="Center"
+                   Margin="0,12,0,10"
+                   BackgroundColor="White"
+                   TextColor="{Binding Source={x:Static local:Theme.Silver}}"
+                   FontFamily="lato-regular"
+                   FontSize="14"/>
+            <!-- User Email End -->
+
+            <!-- TableView Start -->
+            <TableView Intent="Settings" BackgroundColor="White" RowHeight="70">
+                <TableRoot>
+
+                    <TableSection>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         Margin="24,0,24,0">
+                                <Image Source="dark_mode.png" Margin="0,0,5,0"/>
+                                <Label Text="{x:Static resources:AppResources.DarkMode}"
+                                       VerticalOptions="Center"
+                                       FontFamily="lato-regular"
+                                       FontSize="16"/>
+                                <Switch HorizontalOptions="EndAndExpand"
+                                        IsToggled="{Binding IsDarkMode}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+
+                    <TableSection Title="{x:Static resources:AppResources.Device}">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         Margin="20,0,24,0">
+                                <Image Source="iphone.png" Margin="0,0,5,0"/>
+                                <Label Text="Iphone 11 Pro Max"
+                                       VerticalOptions="Center"
+                                       FontFamily="lato-regular"
+                                       FontSize="16"/>
+                                <Switch HorizontalOptions="EndAndExpand"
+                                        IsToggled="{Binding IsIphone}"/>
+
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         Margin="24,0,24,0">
+                                <Image Source="sumsang.png" Margin="0,0,5,0"/>
+                                <Label Text="Sumsang Galaxy S20"
+                                       VerticalOptions="Center"
+                                       FontFamily="lato-regular"
+                                       FontSize="16"/>
+                                <Switch HorizontalOptions="EndAndExpand"
+                                        IsToggled="{Binding IsSumsang}"/>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+
+                    <TableSection Title="{x:Static resources:AppResources.General}">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         Margin="24,0,24,0">
+                                <Image Source="notification.png" Margin="0,0,5,0" />
+                                <Label Text="{x:Static resources:AppResources.Notification}"
+                                       VerticalOptions="Center"
+                                       FontFamily="lato-regular"
+                                       FontSize="16"/>
+                                <Switch HorizontalOptions="EndAndExpand"
+                                        IsToggled="{Binding IsNotification}"/>
+                            </StackLayout>
+                        </ViewCell>
+
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"
+                                         VerticalOptions="Center"
+                                         Margin="24,0,24,0">
+                                <Image Source="currency.png" Margin="0,0,5,0"/>
+                                <Label Text="{x:Static resources:AppResources.Currency}"
+                                       VerticalOptions="Center"
+                                       FontFamily="lato-regular"
+                                       FontSize="16"/>
+                                <Switch HorizontalOptions="EndAndExpand"
+                                        IsToggled="{Binding IsCurrency}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <!-- TableView End -->
+
+        </StackLayout>
+
+    </base:BaseContentPage.Content>
+</base:BaseContentPage>

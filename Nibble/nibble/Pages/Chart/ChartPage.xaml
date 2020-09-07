@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<base:BaseContentPage
+             Title="{x:Static resources:AppResources.Chart}"
+             xmlns:viewModel="clr-namespace:nibble.ViewModels.Chart"
+             x:TypeArguments="viewModel:ChartPageViewModel"
+             xmlns:base="clr-namespace:nibble.Pages"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nibble.Pages.Chart.ChartPage"
+             xmlns:local="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:theme="clr-namespace:nibble.Constants"
+             xmlns:resources="clr-namespace:nibble">
+
+    <!-- NavigationBar Items Start -->
+    <base:BaseContentPage.ToolbarItems>
+
+        <!-- Period Start -->
+        <ToolbarItem  Text="{x:Static resources:AppResources.ChoosePeriod}"
+                      IconImageSource="date"
+                      Order="Primary"
+                      Priority="1"
+                      Command="{Binding ChoosePeriodCommand}"/>
+        <!-- Period End -->
+
+    </base:BaseContentPage.ToolbarItems>
+    <!-- NavigationBar Items End -->
+
+    <base:BaseContentPage.Content>
+        <StackLayout Orientation="Vertical"
+                     BackgroundColor="White">
+
+            <!-- Buttons Start -->
+            <RelativeLayout Margin="0,10,0,60"
+                            VerticalOptions="Start">
+                                        <Frame CornerRadius="5"
+                       HasShadow="False"
+                       Padding="0"
+                       BackgroundColor="{Binding Source={x:Static theme:Theme.Accent}}"
+                       HeightRequest="100"
+                        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                        Property=X,Constant=15}"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression
+                        Type=RelativeToParent,Property=Width,Factor=0.5,Constant=-20}"
+                        >
+                    <StackLayout>
+                        <!-- Click Gesture Start -->
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoChartIncomeCommand}"/>
+                        </StackLayout.GestureRecognizers>
+                        <!-- Click Gesture End -->
+
+                        <Label Text="$18,456.00"
+                               TextColor="White"
+                               Margin="0,20,0,0"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text="{x:Static resources:AppResources.Income}"
+                               TextColor="{Binding Source={x:Static theme:Theme.Silver}}"
+                               HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame
+                    CornerRadius="5"
+                    HasShadow="False"
+                    Padding="0"
+                    BackgroundColor="{Binding Source={x:Static theme:Theme.Red}}"
+                    HeightRequest="100"
+                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                    Property=Width,Factor=0.5,Constant=0}"
+                    RelativeLayout.WidthConstraint="{ConstraintExpression
+                    Type=RelativeToParent,Property=Width,Factor=0.5,Constant=-20}">
+
+                    <StackLayout>
+                        <!-- Click Gesture Start -->
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GoChartExpenseCommand}"/>
+                        </StackLayout.GestureRecognizers>
+                        <!-- Click Gesture End -->
+
+                        <Label Text="$5,248.00"
+                           TextColor="White"
+                           Margin="0,20,0,0"
+                           HorizontalTextAlignment="Center"/>
+                        <Label Text="{x:Static resources:AppResources.Expense}"
+                           HorizontalTextAlignment="Center"
+                           TextColor="{Binding Source={x:Static theme:Theme.Silver}}"/>
+                    </StackLayout>
+
+                </Frame>
+
+            </RelativeLayout>
+            <!-- Buttons End -->
+
+            <!-- Canvas Start -->
+            <local:SKCanvasView x:Name="canvas"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                BackgroundColor="White"
+                                Margin="0,0,0,0">
+                <!-- Due to iOS View constrainted to BottomLayoutConstrait
+                and we cannot modify subviews constraints in UIViewController
+                ,so We can only set platform-specific bottom margin here
+                (because eventually it will be compiled to iOS autolayout)
+                SO IT WILL NOT SHOW SCREEN FLASH
+                -->
+                <local:SKCanvasView.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <OnPlatform.iOS>
+                            0, 0, 0, -80
+                        </OnPlatform.iOS>
+                    </OnPlatform>
+                </local:SKCanvasView.Margin>
+            </local:SKCanvasView>
+            <!-- Canvas End -->
+
+        </StackLayout>
+
+    </base:BaseContentPage.Content>
+</base:BaseContentPage>
